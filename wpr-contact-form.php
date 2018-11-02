@@ -79,7 +79,8 @@ function init() {
 	$wpr = Plugin::get_instance();
 	$wpr_shortcode = Shortcode::get_instance();
 	$wpr_admin = Admin::get_instance();
-	$wpr_rest_admin = Endpoint\Admin::get_instance();
+    $wpr_rest_admin = Endpoint\Admin::get_instance();
+    $wpr_rest_submission = Endpoint\Submission::get_instance(); // connect our new endpoint
 }
 add_action( 'plugins_loaded', 'Pangolin\\WPR\\init' );
 
