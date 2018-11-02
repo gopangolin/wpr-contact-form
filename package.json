@@ -1,0 +1,47 @@
+{
+  "name": "wp-reactivate",
+  "version": "1.0.2",
+  "description": "React boilerplate for WordPress plugins",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --colors --watch --mode=development",
+    "prod": "webpack --progress --colors -p --config webpack.config.js --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gopangolin/wp-reactivate.git"
+  },
+  "keywords": [
+    "wordpress",
+    "react",
+    "plugin",
+    "webpack"
+  ],
+  "author": "Pangolin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gopangolin/wp-reactivate/issues"
+  },
+  "homepage": "https://github.com/gopangolin/wp-reactivate#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.6.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
