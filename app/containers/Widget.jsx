@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ContactForm from '../components/contactForm';
+
 export default class Widget extends Component {
   render() {
     return (
       <div>
-        <h1>WP Reactivate Widget</h1>
-        <p>Title: {this.props.wpObject.title}</p>
+        <section className="widget">
+          <h1 className="widget-title">{this.props.wpObject.title}</h1>
+          <ContactForm wpObject={this.props.wpObject} />
+        </section>
       </div>
-    );
+    );  
   }
 }
 
