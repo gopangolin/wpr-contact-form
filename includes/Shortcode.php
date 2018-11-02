@@ -55,7 +55,7 @@ class Shortcode {
 		$this->plugin_slug = $plugin->get_plugin_slug();
 		$this->version = $plugin->get_plugin_version();
 
-		add_shortcode( 'wp-reactivate', array( $this, 'shortcode' ) );
+		add_shortcode( 'wpr-contact-form', array( $this, 'shortcode' ) ); // Change the shortcode tag to 'wpr-contact-form'
 	}
 
 
