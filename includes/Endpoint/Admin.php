@@ -16,7 +16,7 @@ use Pangolin\WPR;
 /**
  * @subpackage REST_Controller
  */
-class Example {
+class Admin {
     /**
 	 * Instance of this class.
 	 *
@@ -70,40 +70,53 @@ class Example {
     public function register_routes() {
         $version = '1';
         $namespace = $this->plugin_slug . '/v' . $version;
-        $endpoint = '/example/';
+        $endpoint = '/admin/';
 
         register_rest_route( $namespace, $endpoint, array(
             array(
                 'methods'               => \WP_REST_Server::READABLE,
-                'callback'              => array( $this, 'get_example' ),
-                'permission_callback'   => array( $this, 'example_permissions_check' ),
-                'args'                  => array(),
+                'callback'              => array( $this, 'get_contact_email' ),
+                'permission_callback'   => array( $this, 'admin_permissions_check' ),
             ),
         ) );
 
         register_rest_route( $namespace, $endpoint, array(
             array(
                 'methods'               => \WP_REST_Server::CREATABLE,
-                'callback'              => array( $this, 'update_example' ),
-                'permission_callback'   => array( $this, 'example_permissions_check' ),
-                'args'                  => array(),
+                'callback'              => array( $this, 'update_contact_email' ),
+                'permission_callback'   => array( $this, 'admin_permissions_check' ),
+                'args'                  => array(
+                    'email' => array(
+                        'required' => true,
+                        'type' => 'string',
+                        'description' => 'The user\'s email address',
+                        'format' => 'email'
+                    ),
+                ),
             ),
         ) );
 
         register_rest_route( $namespace, $endpoint, array(
             array(
                 'methods'               => \WP_REST_Server::EDITABLE,
-                'callback'              => array( $this, 'update_example' ),
-                'permission_callback'   => array( $this, 'example_permissions_check' ),
-                'args'                  => array(),
+                'callback'              => array( $this, 'update_contact_email' ),
+                'permission_callback'   => array( $this, 'admin_permissions_check' ),
+                'args'                  => array(
+                    'email' => array(
+                        'required' => true,
+                        'type' => 'string',
+                        'description' => 'The user\'s email address',
+                        'format' => 'email'
+                    ),
+                ),
             ),
         ) );
 
         register_rest_route( $namespace, $endpoint, array(
             array(
                 'methods'               => \WP_REST_Server::DELETABLE,
-                'callback'              => array( $this, 'delete_example' ),
-                'permission_callback'   => array( $this, 'example_permissions_check' ),
+                'callback'              => array( $this, 'delete_contact_email' ),
+                'permission_callback'   => array( $this, 'admin_permissions_check' ),
                 'args'                  => array(),
             ),
         ) );
@@ -116,7 +129,7 @@ class Example {
      * @param WP_REST_Request $request Full data about the request.
      * @return WP_Error|WP_REST_Request
      */
-    public function get_example( $request ) {
+    public function get_contact_email( $request ) {
         $example_option = get_option( 'wpr_contact_email' );
 
         // Don't return false if there is no option
@@ -139,12 +152,12 @@ class Example {
      * @param WP_REST_Request $request Full data about the request.
      * @return WP_Error|WP_REST_Request
      */
-    public function update_example( $request ) {
-        $updated = update_option( 'wpr_contact_email', $request->get_param( 'exampleSetting' ) );
+    public function update_contact_email( $request ) {
+        $updated = update_option( 'wpr_contact_email', $request->get_param( 'email' ) );
 
         return new \WP_REST_Response( array(
             'success'   => $updated,
-            'value'     => $request->get_param( 'exampleSetting' )
+            'value'     => $request->get_param( 'email' )
         ), 200 );
     }
 
@@ -154,7 +167,7 @@ class Example {
      * @param WP_REST_Request $request Full data about the request.
      * @return WP_Error|WP_REST_Request
      */
-    public function delete_example( $request ) {
+    public function delete_contact_email( $request ) {
         $deleted = delete_option( 'wpr_contact_email' );
 
         return new \WP_REST_Response( array(
@@ -169,7 +182,7 @@ class Example {
      * @param WP_REST_Request $request Full data about the request.
      * @return WP_Error|bool
      */
-    public function example_permissions_check( $request ) {
+    public function admin_permissions_check( $request ) {
         return current_user_can( 'manage_options' );
     }
 }
