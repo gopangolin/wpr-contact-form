@@ -26,7 +26,7 @@ class Plugin {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'wp-reactivate';
+	protected $plugin_slug = 'wpr-contact-form';
 
 	/**
 	 * Instance of this class.
