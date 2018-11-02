@@ -117,7 +117,7 @@ class Example {
      * @return WP_Error|WP_REST_Request
      */
     public function get_example( $request ) {
-        $example_option = get_option( 'wpr_example_setting' );
+        $example_option = get_option( 'wpr_contact_email' );
 
         // Don't return false if there is no option
         if ( ! $example_option ) {
@@ -140,7 +140,7 @@ class Example {
      * @return WP_Error|WP_REST_Request
      */
     public function update_example( $request ) {
-        $updated = update_option( 'wpr_example_setting', $request->get_param( 'exampleSetting' ) );
+        $updated = update_option( 'wpr_contact_email', $request->get_param( 'exampleSetting' ) );
 
         return new \WP_REST_Response( array(
             'success'   => $updated,
@@ -155,7 +155,7 @@ class Example {
      * @return WP_Error|WP_REST_Request
      */
     public function delete_example( $request ) {
-        $deleted = delete_option( 'wpr_example_setting' );
+        $deleted = delete_option( 'wpr_contact_email' );
 
         return new \WP_REST_Response( array(
             'success'   => $deleted,

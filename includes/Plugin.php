@@ -74,7 +74,7 @@ class Plugin {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		add_option( 'wpr_example_setting' );
+		add_option( 'wpr_contact_email' );
 	}
 
 	/**
