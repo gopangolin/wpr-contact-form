@@ -1,18 +1,18 @@
 <?php
 /**
- * WP-Reactivate
+ * WPR Contact Form
  *
  *
- * @package   WP-Reactivate
+ * @package   WPR Contact Form
  * @author    Pangolin
  * @license   GPL-3.0
  * @link      https://gopangolin.com
- * @copyright 2017 Pangolin (Pty) Ltd
+ * @copyright 2018 Pangolin (Pty) Ltd
  *
  * @wordpress-plugin
- * Plugin Name:       WP-Reactivate
+ * Plugin Name:       WPR Contact Form
  * Plugin URI:        https://gopangolin.com
- * Description:       React boilerplate for WordPress plugins
+ * Description:       Basic tutorial on WP-Reactivate usage
  * Version:           1.0.2
  * Author:            pangolin
  * Author URI:        https://gopangolin.com
