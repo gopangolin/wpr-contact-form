@@ -1,0 +1,9 @@
+.notice {
+    position: relative;
+  }
+  
+.notice_dismiss .dashicons {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+} 
